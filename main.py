@@ -6,7 +6,25 @@ screen = Screen()
 def move_forwards():
     tim.forward(10)
 
+def move_backwards():
+    tim.backward(10)
+
+def turn_clockwise():
+    tim.right(10)
+
+def turn_counterclockwise():
+    tim.left(10)
+
+def clear_drawing():
+    screen.reset()
+    tim.teleport(0)
+
+
 screen.listen()
-screen.onkey(key="space", fun=move_forwards)
+screen.onkey(move_forwards,'w')
+screen.onkey(move_backwards, 's')
+screen.onkey(turn_clockwise,'a')
+screen.onkey(turn_counterclockwise, 'd')
+screen.onkey(clear_drawing,'c')
 
 screen.exitonclick()
